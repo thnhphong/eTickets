@@ -1,0 +1,20 @@
+﻿<div id="vnpay-button-container">
+    <button id="vnpay-button" class="btn btn-primary">Thanh toán qua VNPay</button>
+</div>
+
+<script>
+    document.getElementById("vnpay-button").addEventListener("click", async function() {
+        const response = await fetch("@Url.Action("CreatePayment", "VNPay")", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ amount: @Json.Serialize(ViewBag.TotalAmount)}) // Giá trị đơn hàng
+        });
+
+        const result = await response.json();
+        if (result.url) {
+            window.location.href = result.url; // Điều hướng sang trang thanh toán VNPay
+        }
+    });
+</script>
