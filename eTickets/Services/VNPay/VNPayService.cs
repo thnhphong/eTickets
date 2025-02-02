@@ -47,6 +47,10 @@ namespace eTickets.Services.VNPay
             }
 
             var paymentUrl = pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
+            Console.WriteLine("VNPay URL: " + paymentUrl);
+
+
+            //var paymentUrl = pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
             return paymentUrl;
         }
 
