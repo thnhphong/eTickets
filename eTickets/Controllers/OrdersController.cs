@@ -85,7 +85,6 @@ namespace eTickets.Controllers
 
         public async Task<IActionResult> PaypalPayment()
         {
-
             return null;
         }
     }
