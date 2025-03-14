@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "ZaloPay Payment";
+}
+
+<h2>ZaloPay Payment</h2>
+<p>App ID: @ViewBag.AppId</p>
+<button id="payButton">Pay with ZaloPay</button>
+
+<script>
+    document.getElementById("payButton").addEventListener("click", function () {
+        fetch('/ZaloPay/CreatePayment', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response from server:", data); // Debugging
+                if (data.return_code === 1) {
+                    window.location.href = data.order_url;
+                } else {
+                    alert("Payment Failed: " + data.return_message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    });
+</script>
