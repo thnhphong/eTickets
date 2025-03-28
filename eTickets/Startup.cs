@@ -67,18 +67,15 @@ namespace eTickets
             //.AddEntityFrameworkStores<ApplicationDbContext>()
             //.AddDefaultTokenProviders();
 
-
-<<<<<<< HEAD
             services.AddControllersWithViews();
 
             // Register ZaloPayService for Dependency Injection
             services.AddSingleton<ZaloPayService>();
 
-=======
 
             //email marketing using smtp
             services.AddSingleton<EmailService>();
->>>>>>> 935165e (Add Email Marketing)
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -121,12 +118,9 @@ namespace eTickets
             //Seed database
             AppDbInitializer.Seed(app);
             AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 935165e (Add Email Marketing)
         }
     }
 }

@@ -51,6 +51,7 @@ namespace eTickets.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
+            string baseUrl = "https://bb6c-2402-800-63e9-c654-f028-4a0f-1181-38a7.ngrok-free.app";
             var movieDetail = await _service.GetMovieByIdAsync(id);
             return View(movieDetail);
         }
