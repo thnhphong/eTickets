@@ -2,6 +2,7 @@ using eTickets.Data;
 using eTickets.Data.Cart;
 using eTickets.Data.Services;
 using eTickets.Models;
+using eTickets.Services;
 using eTickets.Services.VNPay;
 using eTickets.Services.ZaloPay;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -67,11 +68,17 @@ namespace eTickets
             //.AddDefaultTokenProviders();
 
 
+<<<<<<< HEAD
             services.AddControllersWithViews();
 
             // Register ZaloPayService for Dependency Injection
             services.AddSingleton<ZaloPayService>();
 
+=======
+
+            //email marketing using smtp
+            services.AddSingleton<EmailService>();
+>>>>>>> 935165e (Add Email Marketing)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -114,9 +121,12 @@ namespace eTickets
             //Seed database
             AppDbInitializer.Seed(app);
             AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 935165e (Add Email Marketing)
         }
     }
 }
